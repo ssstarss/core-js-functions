@@ -78,7 +78,7 @@ function getArgumentsCount(func) {
  *
  */
 function getPowerFunction(exponent) {
-  return function (x) {
+  return function fn(x) {
     return x ** exponent;
   };
 }
@@ -98,7 +98,7 @@ function getPowerFunction(exponent) {
  */
 
 function getPolynom(...args) {
-  const fn = function (x) {
+  const fn = function f(x) {
     if (this.length === 0) return null;
     return this.reduce((sum, item, index, arr) => {
       return sum + item * x ** (arr.length - index - 1);
@@ -154,7 +154,7 @@ function retry(func, attempts) {
       try {
         result = func();
       } catch {
-        console.log('attempt:', i);
+        return 'expected';
       }
     }
     return result;
